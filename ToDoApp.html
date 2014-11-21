@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <!-- comments:toggle html -->
+    <!--<script src="js/ToDoApp.js"></script>-->
+    <script type="text/javascript" data-main="js/main.js" src="bower_components/requirejs/require.js"></script>
+    <!-- endcomments -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+
+</head>
+
+<body>
+
+<section id="main-content">
+
+    <!-- Errand list -->
+
+    <div id="errand-list" class="todo-list-container">
+        <h1>Errands</h1>
+
+        <div class="todo-add-container">
+            <form data-bind="submit: addNewToDoItem">
+                <input type="text" data-bind="value: toDoInputedText"/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <ul class="todo-list" data-bind="foreach: toDoItems">
+
+            <li>
+                <div class="todo-check-container">
+                    <input type="checkbox" data-bind="checked: isChecked"/>
+                </div>
+                <div class="todo-text" data-bind="text: text, css: {strike: isChecked()}">
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <!-- Grocery list -->
+
+    <div id="grocery-list" class="todo-list-container">
+        <h1>Groceries</h1>
+
+        <div class="todo-add-container">
+            <form data-bind="submit: addNewToDoItem">
+                <input type="text" data-bind="value: toDoInputedText"/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <ul class="todo-list" data-bind="foreach: toDoItems">
+
+            <li>
+                <div class="todo-check-container">
+                    <input type="checkbox" data-bind="checked: isChecked"/>
+                </div>
+                <div class="todo-text" data-bind="text: text, css: {strike: isChecked()}">
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</section>
+
+</body>
+</html>

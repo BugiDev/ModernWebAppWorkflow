@@ -1,0 +1,49 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 27-Oct-2014, 10:46:58
+    Author     : Mateja.Opacic
+*/
+
+@mixin for-all-browsers($property, $value){
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+@mixin round-corners($value){
+    @include for-all-browsers(border-radius, $value);
+}
+
+@mixin animation($value){
+    @include for-all-browsers(animation, $value);
+}
+
+@mixin keyframes($animation-name){
+    @-webkit-keyframes #{$animation-name} {@content;}
+    @-moz-keyframes #{$animation-name} {@content;}
+    @-o-keyframes #{$animation-name} {@content;}
+    @keyframes #{$animation-name} {@content;}
+}
+
+/* Better animation */
+@mixin better-animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    -webkit-animation: $animations;
+    -moz-animation:    $animations;
+    -o-animation:      $animations;
+    animation:         $animations;
+}
