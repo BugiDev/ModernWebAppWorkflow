@@ -1,6 +1,4 @@
-/**
- * Created by bogdanbegovic on 11/21/14.
- */
+
 /**
  * Created by bogdanbegovic on 11/21/14.
  */
